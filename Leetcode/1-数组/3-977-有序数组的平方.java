@@ -7,11 +7,15 @@ class Solution {
         
         while (left <= right) {
             if (nums[left]* nums[left] > nums[right]* nums[right]) {
-                result 
+                result [index--] = nums[left] * nums[left];
+                left++;
+            }
+            else {
+                result [index--] = nums[right] * nums[right];
+                right--;
             }
         }
-
-
+        return result;
         
     }
 }
