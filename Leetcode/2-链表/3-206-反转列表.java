@@ -12,3 +12,16 @@ class Solution {
         return pre;
     }
 }
+
+class solution2 {
+    public ListNode reverseList(ListNode head) {
+        return reserse (null,head);
+    }
+
+    private ListNode reverse(ListNode prev, ListNode cur) {
+        if (cur == null) {
+            return prev;
+        }
+        ListNode 
+    }
+}
