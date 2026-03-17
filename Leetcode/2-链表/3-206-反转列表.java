@@ -15,13 +15,33 @@ class Solution {
 
 class solution2 {
     public ListNode reverseList(ListNode head) {
-        return reserse (null,head);
+        return reserse (null,head);//初始条件
     }
 
     private ListNode reverse(ListNode prev, ListNode cur) {
-        if (cur == null) {
+        if (cur == null) { //终止条件
             return prev;
         }
-        ListNode 
+        ListNode temp  = null;
+        temp = cur.next;
+        cur.next = prev;
+
+        return reverse(cur,temp);//单层逻辑
+
+    }
+}
+
+class solution3 {
+    public ListNode reverseList(ListNode head) {
+        if(head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+        ListNode last = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
     }
 }
