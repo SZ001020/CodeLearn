@@ -56,21 +56,21 @@ class Solution {
 }
 // @lc code=end
 
-class Solution {
+class Solution2 {
     public String reverseWords(String s) {
         char[] ch = s.toCharArray();
         ch = removeSpace(ch);
-        reverse(ch,0,s.length - 1);
-        reverseEachWord(ch)
+        reverse(ch,0,ch.length - 1);
+        reverseEachWord(ch);
         return new String(ch);
     }
 
     private void reverseEachWord(char[] s) {
         int start = 0;
-        int size =0;
-        for (int end = 0;end < s.length;end++) {
+        
+        for (int end = 0;end <= s.length;end++) {
             if (end == s.length || s[end] == ' ') {
-                reverse(chars,start,end - 1);
+                reverse(s,start,end - 1);
                 start = end + 1;
             }
         }
@@ -89,38 +89,25 @@ class Solution {
         
     }
 
-    private char[] reverseAll(char[] s) {
-        
-        int right = s.length - 1;
-        int left = 0;
-        char[] res = new char[s.length];
-        for(int i = 0;i<res.length;i++){
-            res[i] = s[right];
-            right--;
-        }
-        
-        return res;
-    }
-
     private char[] removeSpace(char[] s) {
-        char[] res = new char[s.length];
+        
         int slow = 0;
         
-        for(int fast = 0;slow < s.length;fast++) {
+        for(int fast = 0;fast < s.length;fast++) {
             if(s[fast] != ' ') {
-                if(slow = 0) {
+                if(slow != 0) {
                     s[slow++] = ' ';
-                    while (fast < s.length && s[fast] != ' ') {
-                        s[slow++] = s[fast++]
-                    }
-                    
+                }
+
+                while (fast < s.length && s[fast] != ' ') {
+                        s[slow++] = s[fast++];
                 }
             }
 
             
             } 
         char[] newChar = new char[slow];
-        System.arraycopy(s,0,newChar,slow);
+        System.arraycopy(s,0,newChar,0,slow);
         return newChar;
     }
 }
